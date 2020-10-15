@@ -2,13 +2,20 @@ package calculator;
 
 public class Calculator {
 
-    public  int add(int a, int b){
-        return a + b;
-    }
+    public int SumNumbers(String s) {
+        int sum = 0;
 
-    public  double divide(double a, double b){
-        if( b == 0.0)
-            throw new ArithmeticException();
-        return a / b;
+        if (s.isEmpty()) {
+            return 0;
+        } else if (s.contains(",")){
+            String[] numbers = s.split(",");
+            for (var number: numbers) {
+                int num = Integer.parseInt(number);
+                sum += num;
+            }
+            return sum;
+        } else
+            return Integer.parseInt(s);
     }
 }
+
